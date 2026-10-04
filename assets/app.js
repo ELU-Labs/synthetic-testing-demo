@@ -153,7 +153,7 @@
       var items = readCart();
       var existing = items.filter(function (item) { return item.productId === product.id && item.size === sizeSelect.value; })[0];
       if (existing) existing.quantity += qty; else items.push({ productId: product.id, size: sizeSelect.value, quantity: qty });
-      writeCart(items);
+      writeCart(items.map(function (item) { return { productId: item.product.id, size: item.size, quantity: item.quantity }; }));
       status.textContent = '';
       status.appendChild(document.createTextNode('Added ' + qty + ' × ' + product.name + ' to your cart. '));
       status.appendChild(el('a', { href: 'cart.html', text: 'View cart' }));
