@@ -144,7 +144,7 @@
     }
     document.title = product.name + ' — Acme Outfitters';
     var sizeSelect = el('select', { id: 'size', name: 'size' },
-      product.size.map(function (size) { return el('option', { value: size, text: size }); }));
+      product.sizes.map(function (size) { return el('option', { value: size, text: size }); }));
     var quantity = el('input', { id: 'quantity', name: 'quantity', type: 'number', min: '1', max: '10', value: '1' });
     var status = el('p', { id: 'add-status', role: 'status', class: 'status' });
     var add = el('button', { type: 'button', class: 'primary', text: 'Add to cart' });
